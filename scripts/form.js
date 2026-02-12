@@ -14,21 +14,11 @@ const checkUsername = () => {
     const min = 3, max = 25;
 
     /* variable (let username) mit wert von usernameEl */
-    let username = usernameEl.value;
+
     /* leerschläge anfung und ende entfernen */
-    username = username.trim();
     /* test of username einen Wert hat, wenn nicht showError(usernameEl, 'Benutzername darf nicht leer sein'); return false;*/
-    if(! isSet(username) ) {
-        showError(usernameEl, 'Benutzername darf nicht leer sein');
-        return false;
-    }
     /* test ob länge von username between min und max, wenn nicht showError(usernameEl, 'Länge Benutzername nicht richtig'); return false;*/
-    if(! isBetween(username.length, min, max)) {
-        showError(usernameEl, 'Länge Benutzername nicht richtig');
-        return false;
-    }
-    showSuccess(usernameEl);
-    return true;
+    /* anders : showSuccess(usernameEl); return true; */
 };
 
 
@@ -37,24 +27,12 @@ const checkUsername = () => {
  */
 const checkEmail = () => {
 
-    /* variable username mit wert von emailEl */
-    let email = emailEl.value;
-
+    /* variable email mit wert von emailEl */
     /* leerschläge anfung und ende entfernen */
-    email = email.trim();
-    
     /* test of username einen Wert hat, wenn nicht showError(emailEl, 'mail muss ausgefüllt sein'); return false;*/
-    if( !isSet(email) ) {
-        showError(emailEl, 'mail muss ausgefüllt sein');
-        return false;
-    }
     /* test ob im richtigen format, wenn nicht showError(emailEl, 'Email im falschen Format.'); return false;*/
-    if( !isEmailValid(email)) {
-        showError(emailEl, 'Email im falschen Format.');
-        return false;
-    }
-    showSuccess(emailEl);
-    return true;
+    /* anders : showSuccess(emailEl); return true; */
+
 };
 
 /**
@@ -64,21 +42,12 @@ const checkEmail = () => {
 const checkPassword = () => {
 
     /* variable (let password) mit wert von passwordEl */
-    let password = passwordEl.value
     /* leerschläge anfung und ende entfernen */
-    password = password.trim();
+
     /* test of password einen Wert hat, wenn nicht showError(passwordEl, 'Kennwort muss ausgefüllt sein'); return false;*/
-    if(!isSet(password)) {
-        showError(passwordEl, 'Kennwort muss ausgefüllt sein');
-        return false;
-    }
-    /* test ob im richtigen format, wenn nicht showError(emaipasswordEllEl, 'Kennwort-Mindestlänge 8 Buchstaben und muss mindestens 1 Kleinbuchstabe, 1 Grossbuchstaben, 1 Zahl, and 1 Spezialbuchstabe aus (!;@#$%^&*) enthalten.'); return false;*/
-    if( !isPasswordSecure(password)) {
-       showError(passwordEl, 'Kennwort-Mindestlänge 8 Buchstaben und muss mindestens 1 Kleinbuchstabe, 1 Grossbuchstaben, 1 Zahl, and 1 Spezialbuchstabe aus (!;@#$%^&*) enthalten.');
-       return false; 
-    }
-    showSuccess(passwordEl);
-    return true;
+    /* test ob im richtigen format, wenn nicht showError(passwordEl, 'Kennwort-Mindestlänge 8 Buchstaben und muss mindestens 1 Kleinbuchstabe, 1 Grossbuchstaben, 1 Zahl, and 1 Spezialbuchstabe aus (!;@#$%^&*) enthalten.'); return false;*/
+    /* anders : showSuccess(emailEl); return true; */
+
 };
 
 /**
@@ -86,22 +55,12 @@ const checkPassword = () => {
  * @returns boolean true if match
  */
 const checkConfirmPassword = () => {
-    /* variable (let password) mit wert von passwordEl */
-    const password = passwordEl.value.trim();
+    /* variable (let passwort) mit wert von passwordEl */
     /* variable (let confirmpassword) mit wert von confirmPasswordEl */
-    const confirmPassword = confirmPasswordEl.value.trim();
+    /* leerschläge anfung und ende entfernen */
     /* test of passwordConfirm einen Wert hat, wenn nicht showError(confirmPasswordEl, 'Kennwort nochmals eingeben.'); return false;*/
-    if( !isSet(confirmPassword)) {
-        showError(confirmPasswordEl, 'Kennwort nochmals eingeben.');
-        return false;
-    }
     /* vergleiche ob password und confirmPassword gleich sind, wenn nicht showError(confirmPasswordEl, 'Kennwort-Eingaben stimmen nicht überein.'); return false; */
-    if( confirmPassword !== password ) {
-        showError(confirmPasswordEl, 'Kennwort-Eingaben stimmen nicht überein.');
-        return false;
-    }
-    showSuccess(confirmPasswordEl);
-    return true;
+
 };
 
 /**
